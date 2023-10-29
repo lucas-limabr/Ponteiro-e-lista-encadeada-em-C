@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1696978536 source:c:\users\lucas\onedrive\if\bsi\1-periodo\algoritmos\linguagem-c\introduction lista linear\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+
