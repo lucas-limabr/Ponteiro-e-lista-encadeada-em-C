@@ -21,6 +21,7 @@ float Media(Alunos *atual);
 
 int main()
 {
+    //para rodar português na IDE Visual Studio Code
     UINT CPAGE_UTF8 = 65001;
     UINT CPAGE_DEFAULT = GetConsoleOutputCP();
     // Define codificação como sendo UTF-8
