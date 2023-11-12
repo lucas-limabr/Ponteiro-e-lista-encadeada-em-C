@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include<locale.h>
+#include<math.h>
 
 int conversaoInteiro(int parteinteira, float numero);
 
@@ -22,8 +23,10 @@ int main()
 
 int conversaoInteiro(int parteinteira, float numero)
 {
-    int conversaoBin[23], i, quociente = parteinteira;
+    //fazendo o módulo da parte inteira
+    int conversaoBin[23], i, quociente = abs(parteinteira);
 
+    //CONVERSÃO BINÁRIA DA PARTE INTEIRA
     for(i = 0; quociente >= 2; i++)
     {
         conversaoBin[i] = quociente % 2;
@@ -45,10 +48,10 @@ int conversaoInteiro(int parteinteira, float numero)
         printf("\n%d", ordemCorreta[j]);
     }
 
-    //DECIMAL
-    float parteDecimal = numero - parteinteira;
+    //CONVERSÃO BINÁRIA DA PARTE DECIMAL
+    float parteDecimal = fabs(numero) - (abs(parteinteira));
 
-    printf("\nDecimal (base 10): %.2f", parteDecimal);
+    printf("\nDecimal (base 10): %.2f", fabs(parteDecimal));
 
     float result_parcial = parteDecimal;
 
@@ -153,7 +156,7 @@ int conversaoInteiro(int parteinteira, float numero)
        }
 
        for(i = 0; i < 32; i++){
-       printf("\nMantissa e expoente: %d, %d", mantissa_e_sinal[i], i);
+       printf("\nMantissa e expoente: %d", mantissa_e_sinal[i]);
        }
 
     return ordemCorreta;
