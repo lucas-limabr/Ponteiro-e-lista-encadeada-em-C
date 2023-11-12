@@ -123,5 +123,38 @@ int conversaoInteiro(int parteinteira, float numero)
     }
     printf("\n");
 
+    //UNINDO MANTISSA, BITS DO EXPOENTE E BIT DO SINAL
+    // mantissaCompleta e ordemCorreta2
+    int mantissa_e_sinal[32];
+
+
+    if(numero > 1.0){
+        mantissa_e_sinal[0] = 0;
+    }
+    else if(numero < 0.0){
+        mantissa_e_sinal[0] = 1;
+    }
+
+    j = 0;
+    i = 1;
+
+       while(j < 8){
+       mantissa_e_sinal[i] = ordemCorreta2[j];
+       j++;
+       i++;
+       }
+
+       j = 0;
+
+       while(i < 32){
+       mantissa_e_sinal[i] = mantissaCompleta[j];
+       i++;
+       j++;
+       }
+
+       for(i = 0; i < 32; i++){
+       printf("\nMantissa e expoente: %d, %d", mantissa_e_sinal[i], i);
+       }
+
     return ordemCorreta;
 }

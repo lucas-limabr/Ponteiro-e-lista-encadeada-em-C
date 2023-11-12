@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1699577770 source:c:\users\lucas\onedrive\if\bsi\1-periodo\algoritmos\linguagem-c\gerencimanto de senhas (fila)\main.c
+	<stdio.h>
+	<locale.h>
+	<stdlib.h>
+	<windows.h>
+
+1699652780 source:c:\users\lucas\onedrive\if\bsi\2-periodo\estrutura de dados\ponteiro-e-lista-encadeada-em-c\gerencimanto de senhas (fila)\main.c
+	<stdio.h>
+	<locale.h>
+	<stdlib.h>
+	<windows.h>
+
