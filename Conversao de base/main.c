@@ -54,14 +54,12 @@ int conversaoInteiro(int parteinteira, float numero)
         printf("\n%d", ordemCorreta[j]);
     }
 
-
-
     //CONVERSÃO BINÁRIA DA PARTE DECIMAL
     float parteDecimal = fabs(numero) - (abs(parteinteira));
 
     //IMPORTANTÍSSIMO: delimitar que são 2 casas decimais, pois o C gera lixo nas
     //  últimas casas decimais de um número
-    parteDecimal = floorf(parteDecimal * 1000) / 1000;
+    parteDecimal = roundf(parteDecimal * 100) / 100;
 
     printf("\nDecimal (base 10): %.2f", parteDecimal);
 
@@ -147,21 +145,24 @@ int conversaoInteiro(int parteinteira, float numero)
 
     printf("\n l: %d", l);
     j = 0;
-    for(i = auxiliar; i < l; i++, j++)
+    for(i = auxiliar; i <= l; i++, j++)
     {
         mantissaCompleta[j] = ordemCorreta[i];
+        printf("\nINTEIR0: %d", mantissaCompleta[j]);
     }
+    printf("\n");
 
     i = 0;
     for(j; j < 23; j++, i++)
     {
-        mantissaCompleta[j] = conversaoBinDecimal[j];
+        mantissaCompleta[j] = conversaoBinDecimal[i];
+        printf("\nDECIMAL: %d", mantissaCompleta[j]);
     }
 
     printf("\nMantissona\n");
     for(i = 0; i < 23; i++)
     {
-        printf("%d", mantissaCompleta[i]);
+        printf("\n%d", mantissaCompleta[i]);
     }
     printf("\n");
 
