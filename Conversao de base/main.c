@@ -59,7 +59,11 @@ int conversaoInteiro(int parteinteira, float numero)
     //CONVERSÃO BINÁRIA DA PARTE DECIMAL
     float parteDecimal = fabs(numero) - (abs(parteinteira));
 
-    printf("\nDecimal (base 10): %.2f", fabs(parteDecimal));
+    //IMPORTANTÍSSIMO: delimitar que são 2 casas decimais, pois o C gera lixo nas
+    //  últimas casas decimais de um número
+    parteDecimal = floorf(parteDecimal * 1000) / 1000;
+
+    printf("\nDecimal (base 10): %.2f", parteDecimal);
 
     float result_parcial = fabs(parteDecimal);
 
@@ -70,8 +74,6 @@ int conversaoInteiro(int parteinteira, float numero)
     {
         if(result_parcial == 1.00)
         {
-            conversaoBinDecimal[i] = 1;
-            i++;
             for(i; i < mantissa; i++)
             {
                 conversaoBinDecimal[i] = 0;
