@@ -38,20 +38,30 @@ int conversaoInteiro(int parteinteira, float numero)
     //backup que será usado posteriormente
     int l = k;
 
-    if(parteinteira == 1)
+    if(abs(parteinteira) == 1)
     {
+        //incremento apenas para declarar o vetor
         i++;
     }
     //criei o vetor que terá exatamente a msm quantidade de bits da conversão
     int ordemCorreta[i];
 
+    j = 0;
+    if(abs(parteinteira) == 1)
+    {
+        ordemCorreta[0] = conversaoBin[0];
+    }
+    else{
+
     //faço a cópia para este vetor, porém até a última posição significativa, desconsiderando as
     //posições que não foram preechidas no vetor conversaoBin.Porém eu faço o reverse do vetor,
     //pois a conversão binária é de trás para frente
-    for(j = 0; j <= k; j++, i--)
+    for(j; j <= k; j++, i--)
     {
         ordemCorreta[j] = conversaoBin[i];
+        //printf("\n%d", conversaoBin[i]);
         printf("\n%d", ordemCorreta[j]);
+    }
     }
 
     //CONVERSÃO BINÁRIA DA PARTE DECIMAL
@@ -105,8 +115,17 @@ int conversaoInteiro(int parteinteira, float numero)
     //EXP. REPRESENTADO = EXP. REAL + BIAS(127)
     int exp_real = 0;
     j = 0;
+
+    if(abs(parteinteira)){
     for(i = 0; ordemCorreta[j] != 1; j++)
     {
+        i++;
+    }
+    }
+    else{
+        for(i = 0; conversaoBinDecimal[j] != 1; j++){
+            i++;
+        }
         i++;
     }
     //backup de i mais um, será usado posteriormente
@@ -145,6 +164,7 @@ int conversaoInteiro(int parteinteira, float numero)
 
     printf("\n l: %d", l);
     j = 0;
+
     for(i = auxiliar; i <= l; i++, j++)
     {
         mantissaCompleta[j] = ordemCorreta[i];
