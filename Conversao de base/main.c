@@ -12,7 +12,10 @@ int main()
     float numero, i;
     int parteInteira;
 
-    printf("Digite um número, com até 2 casas decimais: ");
+    printf("\tConversor de número decimal em um binário de PFPS (Ponto flutunate de precisão simples) - 32bits");
+    printf("\n\t---------------------------------------------------------------------------------------------\n\n");
+
+    printf("\tDigite um número, com até 2 casas decimais: ");
     scanf("%f", &numero);
 
     //pegando a parte inteira do nº
@@ -51,17 +54,16 @@ int conversaoInteiro(int parteinteira, float numero)
     {
         ordemCorreta[0] = conversaoBin[0];
     }
-    else{
-
-    //faço a cópia para este vetor, porém até a última posição significativa, desconsiderando as
-    //posições que não foram preechidas no vetor conversaoBin.Porém eu faço o reverse do vetor,
-    //pois a conversão binária é de trás para frente
-    for(j; j <= k; j++, i--)
+    else
     {
-        ordemCorreta[j] = conversaoBin[i];
-        //printf("\n%d", conversaoBin[i]);
-        printf("\n%d", ordemCorreta[j]);
-    }
+
+        //faço a cópia para este vetor, porém até a última posição significativa, desconsiderando as
+        //posições que não foram preechidas no vetor conversaoBin.Porém eu faço o reverse do vetor,
+        //pois a conversão binária é de trás para frente
+        for(j; j <= k; j++, i--)
+        {
+            ordemCorreta[j] = conversaoBin[i];
+        }
     }
 
     //CONVERSÃO BINÁRIA DA PARTE DECIMAL
@@ -70,8 +72,6 @@ int conversaoInteiro(int parteinteira, float numero)
     //IMPORTANTÍSSIMO: delimitar que são 2 casas decimais, pois o C gera lixo nas
     //  últimas casas decimais de um número
     parteDecimal = roundf(parteDecimal * 100) / 100;
-
-    printf("\nDecimal (base 10): %.2f", parteDecimal);
 
     float result_parcial = fabs(parteDecimal);
 
@@ -105,29 +105,27 @@ int conversaoInteiro(int parteinteira, float numero)
         }
     }
 
-    //APENAS PARA EXIBIÇÃO
-    for(i = 0; i < mantissa; i++)
-    {
-        printf("\nConversão da parte decimal: %d", conversaoBinDecimal[i]);
-    }
-
     //BIAS
     //EXP. REPRESENTADO = EXP. REAL + BIAS(127)
     int exp_real = 0;
     j = 0;
 
-    if(abs(parteinteira)){
-    for(i = 0; ordemCorreta[j] != 1; j++)
+    if(abs(parteinteira))
     {
-        i++;
+        for(i = 0; ordemCorreta[j] != 1; j++)
+        {
+            i++;
+        }
     }
-    }
-    else{
-        for(i = 0; conversaoBinDecimal[j] != 1; j++){
+    else
+    {
+        for(i = 0; conversaoBinDecimal[j] != 1; j++)
+        {
             i++;
         }
         i++;
     }
+
     //backup de i mais um, será usado posteriormente
     int auxiliar = (i + 1);
     exp_real = k - i;
@@ -152,39 +150,48 @@ int conversaoInteiro(int parteinteira, float numero)
 
     int ordemCorreta2[8];
 
+    if(numero >= 0)
+    {
+        printf("\n\tBIT DE SINAL = 0");
+    }
+    else
+    {
+        printf("\n\tBIT DE SINAL = 1");
+    }
+
+    printf("\n\tBITS DE EXPOENTE(8) = ");
     for(j = 0; j < 8; j++, i--)
     {
         ordemCorreta2[j] = bitSinal[i];
-        printf("\nExpoente: %d", ordemCorreta2[j]);
+        printf("%d", ordemCorreta2[j]);
     }
 
     //UNINDO OS VETORES DA PARTE INTEIRA COM A DECIMAL
     //ordemCorreta E conversaoBinDecimal
     int mantissaCompleta[23];
-
-    printf("\n l: %d", l);
     j = 0;
 
     for(i = auxiliar; i <= l; i++, j++)
     {
         mantissaCompleta[j] = ordemCorreta[i];
-        printf("\nINTEIR0: %d", mantissaCompleta[j]);
     }
     printf("\n");
 
     i = 0;
+
     for(j; j < 23; j++, i++)
     {
         mantissaCompleta[j] = conversaoBinDecimal[i];
-        printf("\nDECIMAL: %d", mantissaCompleta[j]);
     }
 
-    printf("\nMantissona\n");
-    for(i = 0; i < 23; i++)
+    printf("\tBITS DA MANTISSA(23) = ");
+    i = 0;
+
+    while(i < 23)
     {
-        printf("\n%d", mantissaCompleta[i]);
+        printf("%d", mantissaCompleta[i]);
+        i++;
     }
-    printf("\n");
 
     //UNINDO MANTISSA, BITS DO EXPOENTE E BIT DO SINAL
     // mantissaCompleta e ordemCorreta2
@@ -219,10 +226,13 @@ int conversaoInteiro(int parteinteira, float numero)
         j++;
     }
 
+    printf("\n\tBINÁRIO DE 32 BITS CORRESPONDENTE = ");
     for(i = 0; i < 32; i++)
     {
-        printf("\nMantissa e expoente: %d", mantissa_e_sinal[i]);
+        printf("%d", mantissa_e_sinal[i]);
     }
+
+    printf("\n");
 
     return ordemCorreta;
 }
