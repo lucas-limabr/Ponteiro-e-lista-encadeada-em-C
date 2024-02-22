@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1702648015 source:c:\users\lucas\onedrive\if\bsi\2-periodo\estrutura de dados\ponteiro-e-lista-encadeada-em-c\lucasdaniel\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+

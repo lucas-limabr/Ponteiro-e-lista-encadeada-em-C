@@ -10,18 +10,25 @@ int main()
     setlocale(LC_ALL, "");
 
     float numero, i;
-    int parteInteira;
+    int parteInteira, continuar;
 
     printf("\tConversor de número decimal em um binário de PFPS (Ponto flutunate de precisão simples) - 32bits");
     printf("\n\t---------------------------------------------------------------------------------------------\n\n");
 
-    printf("\tDigite um número, com até 2 casas decimais: ");
-    scanf("%f", &numero);
+    do
+    {
+        printf("\tDigite um número, com até 2 casas decimais: ");
+        scanf("%f", &numero);
 
-    //pegando a parte inteira do nº
-    parteInteira = numero;
+        //pegando a parte inteira do nº
+        parteInteira = numero;
 
-    conversaoInteiro(parteInteira, numero);
+        conversaoInteiro(parteInteira, numero);
+
+        printf("\n\tVc quer continuar? [1]Sim / [0]Não: ");
+        scanf("%d", &continuar);
+    }while(continuar == 1);
+
 }
 
 int conversaoInteiro(int parteinteira, float numero)

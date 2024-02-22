@@ -47,7 +47,7 @@ int main()
     no.nota = 8;
 
     /*o ponteiro listaAlunos precisa atualizar e receber o novo primeiro nó da lista, quando a inserção é feita no início e para a função
-    é fundamental que ela saiba onde começa a lista, por isso, que ela recebe como parâmetro o ponteiro que aponta para o início da lista atualmente, além do nó que é o dado a ser preechido*/
+    é fundamental que ela saiba onde começa a lista, por isso, que ela recebe como parâmetro o ponteiro que aponta para o início da lista atualmente, além do nó que é o dado a ser preenchido*/
     listaAlunos = insereInicio(listaAlunos, no);
 
     no.matricula = 2023;
@@ -163,7 +163,7 @@ Aluno *remover(Aluno *atual, int matricula)
         atual = atual->next;
         inicio = atual;
     }
-    //se não for, o pr´ximo nó do anterior apontará para o próximo do atual
+    //se não for, o próximo nó do anterior apontará para o próximo do atual
     else
     {
         ant->next = atual->next;
